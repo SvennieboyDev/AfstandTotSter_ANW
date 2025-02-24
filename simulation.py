@@ -1,7 +1,7 @@
 import pygame
 import math
 
-t_earth, t_moon, t_mars, t_jupiter, t_venus = 0, 0, 0, 0, 0
+t_earth, t_moon, t_mars, t_jupiter, t_venus, t_mercurius = 0, 0, 0, 0, 0, 0
 
 def heliocentricSystem(screen, zoom_scale):
     center_x, center_y = 350, 350 #Makkelijkere manier?
@@ -83,8 +83,19 @@ def heliocentricSystem(screen, zoom_scale):
     venus_scaled_size = int(earth_scaled_size * 0.95)
     pygame.draw.circle(screen, (213, 171, 114), (venus_x, venus_y), venus_scaled_size, venus_scaled_size)
 
+
     # Mercurius
-    
+    mercurius_a, mercurius_b = largest_earth_radius - 500 * zoom_scale, largest_earth_radius - 500 * zoom_scale
+    mercurius_distance_x = center_x - mercurius_a
+    mercurius_distance_y = center_x - mercurius_b
+    pygame.draw.ellipse(screen, (255, 255, 255), (mercurius_distance_x, mercurius_distance_y, mercurius_a * 2, mercurius_b * 2), width=1)
+
+    global t_mercurius
+    t_mercurius_increment = t_earth_increment * 1.6
+    mercurius_x, mercurius_y, t_mercurius = createOrbit(center_x, center_y, mercurius_a, mercurius_b, t_mercurius, t_mercurius_increment)
+
+    mercurius_scaled_size = int(earth_scaled_size * 0.38)
+    pygame.draw.circle(screen, (140, 133, 122), (mercurius_x, mercurius_y), mercurius_scaled_size, mercurius_scaled_size)
 
 
 
