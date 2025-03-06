@@ -69,7 +69,7 @@ class CelestialBody:
         pygame.draw.circle(screen, self.color, self.position, self.size)
 
         if draw_line == True:
-            pygame.draw.line(screen, (255, 255, 255), self.position, (0, 0))
+            pygame.draw.line(screen, (255, 255, 255), self.position, (0, 0), width=2)
     
     def createOrbit(self, center_x, center_y):
         x = center_x + self.a * math.cos(self.t)
@@ -210,8 +210,8 @@ def switchScene(screen, POI, domain, reach, sun, earth, scorpiiV818, scorpiusX1,
 
 def main():
     pygame.init()
-    #screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-    screen = pygame.display.set_mode((700, 600)) # Test
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    #screen = pygame.display.set_mode((700, 600)) # Test
     domain, reach = screen.get_size() # Domein is x-as en bereik is y-as
     pygame.display.set_caption("Afstand tot ster")
     clock = pygame.time.Clock()
@@ -286,7 +286,7 @@ def main():
         "d is de afstand in parsec en p de parallaxhoek.",
         "De berekende afstand is 2,8 kpc",
         "dus is in lichtjaren is dat: 2,8 X 3,26 = 9,128 kly (kilolichtjaar).",
-        "Dat is 9128 lichtjaar, wat overeenkomt met het internet."]
+        "Dat is 9128 lichtjaar, wat overeenkomt met de afstand op het internet."]
     
     start_y = 25 * default_reach  # Beginpositie voor de tekst 
     line_spacing = 30 * default_reach  # Afstand tussen regels
