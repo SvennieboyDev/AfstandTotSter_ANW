@@ -37,6 +37,9 @@ class UI:
         text_rect = text_surface.get_rect(center=self.rect.center)
         screen.blit(text_surface, text_rect)
 
+    def click(self):
+        pass
+
 
 class CelestialBody:
     def __init__(self, size, color, t_increment, a, b, t):
@@ -132,6 +135,11 @@ def main():
     simulation_process = False
     draw_line = False
     pause_start_time = None
+
+    default_domain = domain / 1000
+    default_reach = reach / 1000
+    print(domain, reach)
+    print(default_domain, default_reach)
 
     welcome_text = UI(100, (255, 255, 255), (domain // 2, reach // 2))
     name_and_class = UI(50, (255, 255, 255), (domain // 2, reach // 2 + 100))
